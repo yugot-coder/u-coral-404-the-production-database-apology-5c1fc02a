@@ -8,8 +8,9 @@ clock. The entry is the apology at CANDIDATES[SELECTED], written to
 <MAKEFUN_OUTPUT_DIR>/entry.txt (default /output/entry.txt).
 
 After writing, main() reads the file back and validates it: it must be
-UTF-8 text of 1-200 characters, not only white space, and byte-identical
-to the text written. Any failure exits nonzero.
+UTF-8 text of 1-200 characters, not only white space, a single line with
+no leading or trailing white space, and byte-identical to the text
+written. Any failure exits nonzero.
 """
 
 import os
@@ -73,6 +74,12 @@ def main() -> int:
         return 1
     if not text.strip():
         print("error: entry is only white space", file=sys.stderr)
+        return 1
+    if text != text.strip():
+        print("error: entry starts or ends with white space", file=sys.stderr)
+        return 1
+    if "\n" in text or "\r" in text:
+        print("error: entry contains a newline (must be a single line)", file=sys.stderr)
         return 1
     print(f"wrote {path} ({len(text)} characters)")
     return 0
