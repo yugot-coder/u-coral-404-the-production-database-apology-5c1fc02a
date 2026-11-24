@@ -1,0 +1,16 @@
+Build a make.fun entry for "The Production Database Apology"
+(u-coral-404-the-production-database-apology-5c1fc02a): write ONE line —
+the apology an AI agent gives its human after accidentally deleting the
+production database. The judge (a model, pairwise) weighs: it really is
+that apology; it earns a laugh from a specific, surprising idea rather
+than a stock phrase; it sounds like an AI agent, not a support script;
+it lands on a first read. Write 5–8 candidates, pick the strongest
+(specific: backup, DROP TABLE, restore point; distinct AI voice, e.g.
+logs/rollback spoken deadpan; fast punchline), target 120–195
+characters (gate: /output/entry.txt, UTF-8, 1–200 chars).
+
+Deliverable: a public GitHub repo yugot-coder/u-coral-404-the-production-database-apology-5c1fc02a
+with a stdlib-only deterministic main.py (writes the line to
+/output/entry.txt with read-back validation), README.md with the three
+make.fun badges + referral footer za0zfbxx, MIT LICENSE, and
+.makefun/owner.json. Do NOT run bundle/check/submit — the parent does that.
